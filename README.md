@@ -1,1 +1,3 @@
 # PyQtCalculator
+
+![](Screenshot.png)
