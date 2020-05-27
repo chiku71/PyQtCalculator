@@ -25,7 +25,7 @@ class CalculatorButtonBase(CalculatorElementBase):
         pass
 
     def on_release_action(self):
-        pass
+        self.input_box.set_focus()
 
     def _add_button_value_to_input_box(self):
         current_input_txt = self.input_box.value
