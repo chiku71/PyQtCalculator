@@ -23,7 +23,7 @@ class ApplicationWindow(QWidget):
 
         self.button_objects_map = dict()
         self.output_display = CalculatorOutputDisplay()
-        self.input_box = CalculatorInputBox()
+        self.input_box = CalculatorInputBox(self.output_display)
 
         self.g_layout = QGridLayout()
 
@@ -42,6 +42,7 @@ class ApplicationWindow(QWidget):
 
         self.setLayout(main_layout)
         self.show()
+        self.input_box.element.setFocus()
 
     def _set_up_buttons_to_grid(self):
         max_columns = 0
