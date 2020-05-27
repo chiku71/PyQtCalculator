@@ -15,9 +15,9 @@ class CalculatorOutputDisplay(CalculatorElementBase):
     def __init__(self):
         super(CalculatorOutputDisplay, self).__init__("output_display", QScrollArea())
 
-        self.output_results = dict()
         self.output_vbox = QVBoxLayout()
         self.display_widget = QWidget()
+        self.last_result = None
 
         self.odd_row_flag = True
 
@@ -36,7 +36,7 @@ class CalculatorOutputDisplay(CalculatorElementBase):
         self.element.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
         self.element.setWidgetResizable(True)
         self.element.setWidget(self.display_widget)
-        self.element.setFixedHeight(200)
+        self.element.setFixedHeight(230)
 
         # Register activities
         scroll_bar = self.element.verticalScrollBar()
