@@ -7,7 +7,7 @@ from importlib import reload
 from PyQt5.QtWidgets import QWidget, QApplication, QGridLayout, QVBoxLayout
 
 # Tool Specific Import
-from ui_elements.buttons_layout import BUTTON_ROW_LAYOUT_MAPS, HANDLER_CLASS, CSS_STYLE_MAP
+from ui_elements.buttons_layout import BUTTON_ROW_LAYOUT_MAPS, HANDLER_CLASS, CSS_STYLE_MAP, ICON_PATH
 from ui_elements.buttons_base import CalculatorButtonBase
 from ui_elements.input_box import CalculatorInputBox
 from ui_elements.output_display import CalculatorOutputDisplay
@@ -58,8 +58,9 @@ class ApplicationWindow(QWidget):
                 # Now set the buttons to their positions
                 button_details = row_layout_map[btn_item]
                 handler_class = button_details.get(HANDLER_CLASS, CalculatorButtonBase)
+                icon_file_path = button_details.get(ICON_PATH, None)
                 
-                button = handler_class(btn_item, self.output_display, self.input_box)
+                button = handler_class(btn_item, icon_file_path, self.output_display, self.input_box)
                 button.prepare_and_set_css_style(button_details.get(CSS_STYLE_MAP, dict()))
 
                 self.g_layout.addWidget(button.element, r, c, row_width, col_width)
