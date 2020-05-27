@@ -12,6 +12,8 @@ class CalculatorOutputDisplay(CalculatorElementBase):
     odd_result_row_color = "#60C4F5"
     even_result_row_color = "#FEFEAD"
 
+    operator_symbols = ["+", "-", "X", "x", "*", "/"]
+
     def __init__(self):
         super(CalculatorOutputDisplay, self).__init__("output_display", QScrollArea())
 
@@ -47,7 +49,7 @@ class CalculatorOutputDisplay(CalculatorElementBase):
 
         # Add the input Expression
         input_exp_css = "{}: 0px;{}: {};{}:20px;".format(BORDER_WIDTH, BG_COLOR, row_color, FONT_SIZE)
-        label = QLabel(str(input_expression))
+        label = QLabel(self.format_input_value(input_expression))
         label.setStyleSheet(input_exp_css)
         self.output_vbox.addWidget(label)
 
@@ -59,6 +61,13 @@ class CalculatorOutputDisplay(CalculatorElementBase):
         self.output_vbox.addWidget(label)
 
         self.odd_row_flag = False if self.odd_row_flag else True
+
+    def format_input_value(self, input_value):
+        input_value = str(input_value).replace(" ", "")
+        for ch in self.operator_symbols:
+            input_value = input_value.replace(ch, " {} ".format(ch))
+
+        return input_value
 
     def clear(self):
         for i in reversed(range(self.output_vbox.count())):
