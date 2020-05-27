@@ -1,24 +1,23 @@
 from collections import OrderedDict
 from ui_elements.css_constants import BG_COLOR, FONT_SIZE
-from ui_elements.buttons_base import CalculatorButtonBase
 from ui_elements.numeric_button import CalculatorNumberButton
 from ui_elements.math_operator_button import CalculatorMathOperatorButton
 from ui_elements.evaluate_button import CalculatorEvaluateButton
-from ui_elements.functionality_button import CalculatorACButton, CalculatorDelButton, CalculatorClearButton
+from ui_elements.functionality_button import CalculatorCEButton, CalculatorDelButton, CalculatorClearButton
 
 
 HANDLER_CLASS = "handler_class"
 CSS_STYLE_MAP = "css_style_map"
 
-# [("AC", "Del", "Clear", "/", "Sqr"),
+# [("CE", "Del", "Clear", "/", "Sqr"),
 #  ("7", "8", "9", "X", "Sqrt"),
 #  ("4", "5", "6", "-", "Pow"),
 #  ("1", "2", "3", "+", "Root"),
 #  (".", "0", "%", "=")]
 BUTTON_ROW_LAYOUT_MAPS = [
     OrderedDict((
-        ("AC", {
-            HANDLER_CLASS: CalculatorACButton,
+        ("CE", {
+            HANDLER_CLASS: CalculatorCEButton,
             CSS_STYLE_MAP: {BG_COLOR: "#4578EF"}}),
         ("Del", {
             HANDLER_CLASS: CalculatorDelButton,

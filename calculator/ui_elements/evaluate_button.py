@@ -6,16 +6,15 @@ from ui_elements.buttons_base import CalculatorButtonBase
 class CalculatorEvaluateButton(CalculatorButtonBase):
 
     def on_click_action(self):
-        print("Inside on click Evaluation Button")
         current_input_txt = self.input_box.value
-        print("Evaluating : '{}'".format(current_input_txt))
 
         if current_input_txt:
             try:
                 # Clean the expression from replaced symbols
-                current_input_txt = str(current_input_txt).strip().replace("X", "*")
+                current_input = str(current_input_txt).strip().replace("X", "*")
 
-                result = eval(current_input_txt)
+                result = round(eval(current_input), 5)
+                self.output_display.last_result = result
             except Exception as ex:
                 print("Exception occurred : {}".format(ex))
                 result = "Invalid Expression"
@@ -25,3 +24,4 @@ class CalculatorEvaluateButton(CalculatorButtonBase):
 
             # Set the input box to blank
             self.input_box.clear()
+

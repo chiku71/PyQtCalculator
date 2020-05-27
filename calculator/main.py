@@ -4,19 +4,9 @@ import sys
 from importlib import reload
 
 # PyQt imports
-from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import QWidget, QApplication, QGridLayout, QVBoxLayout
 
 # Tool Specific Import
-from ui_elements import buttons_layout, buttons_base, elements_base, numeric_button, input_box, output_display, evaluate_button
-reload(elements_base)
-reload(buttons_base)
-reload(numeric_button)
-reload(buttons_layout)
-reload(input_box)
-reload(output_display)
-reload(evaluate_button)
-
 from ui_elements.buttons_layout import BUTTON_ROW_LAYOUT_MAPS, HANDLER_CLASS, CSS_STYLE_MAP
 from ui_elements.buttons_base import CalculatorButtonBase
 from ui_elements.input_box import CalculatorInputBox
@@ -76,9 +66,6 @@ class ApplicationWindow(QWidget):
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
-    print("Starting window application")
     window = ApplicationWindow()
-
-    print("Closing application")
 
     sys.exit(app.exec_())
