@@ -25,11 +25,9 @@ class CalculatorButtonBase(CalculatorElementBase):
         self.element.released.connect(lambda: self.on_release_action())
 
     def _set_icon(self):
-        print("Icon File path : {}".format(self.icon_file))
         if self.icon_file:
             self.element.setIcon(QIcon(self.base_icon_folder + self.icon_file))
             self.element.setText("")
-            print("Icon set done for :{}".format(self.name))
 
     def on_click_action(self):
         raise NotImplementedError
